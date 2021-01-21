@@ -28,6 +28,7 @@ The project itself is a practice of basic Javascript concepts and syntax, git ve
 ---
 ## Launching Project
 
-Once downloaded, navigate to project directory using a Terminal (or CMD).
-
-In this directory run `node main.js` and follow the promopts in the console.
+Once downloaded, navigate to project directory using Terminal (or CMD).
+Run the following `npm install`
+Then run `npm start` and follow the promopts in the console.
+Press `Ctrl + C` to exit at any time.

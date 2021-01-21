@@ -1,0 +1,23 @@
+{
+  "name": "mixed-messages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hector-hs3/mixed-messages.git"
+  },
+  "keywords": [],
+  "author": "Hector H. Sanabria 3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hector-hs3/mixed-messages/issues"
+  },
+  "homepage": "https://github.com/hector-hs3/mixed-messages#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
