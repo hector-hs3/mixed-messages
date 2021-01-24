@@ -9,7 +9,8 @@ The project itself is a practice of basic Javascript concepts and syntax, git ve
 
 ## Concepts Learned:
 - Project versioning with _Git_ and _GitHub_
-- Implementation of simle _**REPL**_ program
+- Implementation of simle _**REPL**_ program with `prompt-sync` library.
+- Date manipulation with `moment.js`.
 - Applying correct _Javascript_ syntax and special language features:
   - Short-Circuit Evaluation
   - Single-Line Functions

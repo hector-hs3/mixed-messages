@@ -1,4 +1,6 @@
 const prompt = require('prompt-sync')({sigint: true});
+const {validate, validateBDay} = require('./helpers');
+
 let repeat = true;
 const welcomeStr = 
 `
@@ -26,25 +28,31 @@ Lets analyze the stars and shed some light into your day.
 // Start Program Execution:
 console.log(welcomeStr);
 
-let input = prompt('Enter your Birthday (MM/DD/YY):   ');
-
-// get age and element
-console.log(`\nCongrats on making it to a healthy X years, you Y you!\n`);
 do {
+    let input = prompt('Enter your Birthday (MM/DD/YY):   ');
+    if (!validateBDay(input)) continue;
+
+    // get age and element
+    console.log(`\nCongrats on making it to a healthy X years, you Y you!\n`);
+
     // generate Daily Horoscope
     console.log(`Your horoscope\n`);
 
     input = prompt('Would you like to know your Fortune in the Realm of Wealth? (y/n):   ');
-    // validate input
-    console.log(`\nYour money fortune\n`);
+    if (!validate(input)) continue;
+    if (['Y', 'y'].includes(input)) console.log(`\nYour Money fortune\n`);
+
     input = prompt('How about your Fortune in Love? (y/n):   ')
-    // validate input
+    if (!validate(input)) continue;
+    if (['Y', 'y'].includes(input)) console.log(`\nYour Love fortune\n`);
+
     console.log('\nOverall seems like a good day.\n\n');
+
     input = prompt('But wait! The stars have shifted again already...' + 
     '\nWould you like to see what they say now?' + 
     '\n(y - to repeat, n - to exit):   '
     )
-    // validate input
-
+    if (!validate(input)) continue;
     repeat = ['Y', 'y'].includes(input);
+
 } while (repeat);
