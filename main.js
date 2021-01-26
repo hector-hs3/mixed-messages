@@ -1,7 +1,10 @@
 const prompt = require('prompt-sync')({sigint: true});
-const {validate, validateBDay} = require('./helpers');
+const {validate, validateBDay, generateUserProfile} = require('./helpers');
 
+let input = '';
 let repeat = true;
+let userProfile = {};
+
 const welcomeStr = 
 `
 ==========================================================
@@ -29,30 +32,30 @@ Lets analyze the stars and shed some light into your day.
 console.log(welcomeStr);
 
 do {
-    let input = prompt('Enter your Birthday (MM/DD/YY):   ');
+    input = prompt('Enter your Birthday (MM/DD/YY):   ');
     if (!validateBDay(input)) continue;
+    userProfile = generateUserProfile(input);
 
     // get age and element
-    console.log(`\nCongrats on making it to a healthy X years, you Y you!\n`);
+    console.log(`\nCongrats on making it to a healthy ${userProfile.age} years, you ${userProfile.sign} you!\n`);
 
-    // generate Daily Horoscope
-    console.log(`Your horoscope\n`);
+    console.log(`Here is your daily horoscope:\n`);
+    console.log(userProfile.getDaily);
 
     input = prompt('Would you like to know your Fortune in the Realm of Wealth? (y/n):   ');
     if (!validate(input)) continue;
-    if (['Y', 'y'].includes(input)) console.log(`\nYour Money fortune\n`);
+    if (['Y', 'y'].includes(input)) console.log(userProfile.getMoney);
 
     input = prompt('How about your Fortune in Love? (y/n):   ')
     if (!validate(input)) continue;
-    if (['Y', 'y'].includes(input)) console.log(`\nYour Love fortune\n`);
+    if (['Y', 'y'].includes(input)) console.log(userProfile.getLove);
 
-    console.log('\nOverall seems like a good day.\n\n');
+    console.log('\nOverall it seems like a good day ;)\n\n');
+    console.log('But wait! The stars have shifted again already...\n');
 
-    input = prompt('But wait! The stars have shifted again already...' + 
-    '\nWould you like to see what they say now?' + 
-    '\n(y - to repeat, n - to exit):   '
-    )
+    input = prompt('Would you like to see what they say now? (y - to repeat, n - to exit):   ');
     if (!validate(input)) continue;
     repeat = ['Y', 'y'].includes(input);
-
+    console.log('\n');
 } while (repeat);
+

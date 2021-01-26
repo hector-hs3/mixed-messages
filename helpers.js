@@ -4,8 +4,8 @@ const moment = require('moment');
 const random = (num = 50) => Math.floor(Math.random() * num);
 
 function validateBDay(bDayStr) {
-    let bDayObj = moment(bDayStr, 'MM/DD/YY');
-    if (bDayObj.isValid()) {
+    let bDayObj = moment(bDayStr, 'MM/DD/YY', true);
+    if (!bDayObj.isValid()) {
         console.log('\nOops, seems that you entered a wrong value.\n' + 
         'Lets try this again :)\n'
         );
@@ -76,18 +76,18 @@ function generateMessages(luckyNum, element) {
         love: [
             ['a special', 'new', 'a passionate'],
             ['humble', 'curious', 'playful', 'suspicious'],
-            ['adventures', 'quiet spaces', 'favorite pass times']
+            ['new adventures', 'quiet spaces', 'your favorite pass times']
         ]
     };
 
     result.daily = `
     Today you should ${phrases.daily[0][random(4)]} opportunities. 
     Remember to focus on ${phrases.daily[1][random(4)]} as you go about your day.
-    Also, keeo an eye out for your lucky number: ${luckyNum}.
+    Also, keeo an eye out for your lucky number: ${luckyNum}!
     `;
     result.money = `
     Given that you are an ${element} sign, it will be best to ${phrases.money[0][random(4)]} your money... 
-    Or at least till the next ${phrases.money[1][random(4)]} moon.
+    At least till the next ${phrases.money[1][random(4)]} moon.
     `;
     result.love = `
     There is ${phrases.love[0][random(3)]} love in your near future. 
