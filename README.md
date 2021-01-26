@@ -11,8 +11,8 @@ The project itself is a practice of basic Javascript concepts and syntax, git ve
 - Project versioning with _Git_ and _GitHub_
 - Implementation of simle _**REPL**_ program with `prompt-sync` library.
 - Date manipulation with `moment.js`.
+- Randomizing strings with Math library and interpolation.
 - Applying correct _Javascript_ syntax and special language features:
-  - Short-Circuit Evaluation
   - Single-Line Functions
   - Default parameters in Functions
   - `this` keyword
